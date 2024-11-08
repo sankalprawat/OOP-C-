@@ -1,0 +1,3 @@
+C:/Users/sanka/OneDrive/Desktop/OOP C++/cmake-build-debug/CMakeFiles/OOP_C__.dir
+C:/Users/sanka/OneDrive/Desktop/OOP C++/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/sanka/OneDrive/Desktop/OOP C++/cmake-build-debug/CMakeFiles/rebuild_cache.dir

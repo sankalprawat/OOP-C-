@@ -1,10 +1,11 @@
 #include <iostream>
 
-using namespace std;
+using namespace std; // dont pollute the namespace
 
-int binarySearch(int a[], int n, int data)
+int binarySearch(int a[], int n, int data) // use relevant variable names
 {
-    int l = 0, r = n - 1;
+    int l = 0, r = n - 1; // same as above
+    
     int mid = 0;
 
     while (l <= r)

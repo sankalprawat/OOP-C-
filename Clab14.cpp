@@ -4,41 +4,38 @@
 using namespace std;
 
 int main()
-{
-    int num1, num2;
-    char opr;
-   
-    int *ptr1 = new int(num1);
-    int *ptr2 = new int(num2);
-    char *ptr3 = new char(opr) ;
+{  
+    int *num1 = new int();
+    int *num2 = new int();
+    char *opr = new char() ;
 
     cout << "Enter the first number : ";
-    cin >> num1;
+    cin >> *num1;
     cout << "Enter the operator(+, -, *, /, %): ";
-    cin >> opr;
+    cin >> *opr;
     cout << "Enter the second number : ";
-    cin >> num2;
+    cin >> *num2;
 
-    switch (opr)
+    switch (*opr)
     {
     case '+':
-        cout << "Addtion : " << *ptr1 + *ptr2 ;
+        cout << "Addtion : " << *num1 + *num2 ;
         break;
 
         case '-':
-        cout << "Subtraction : " << *ptr1 - *ptr2 ;
+        cout << "Subtraction : " << *num1 - *num2 ;
         break;
 
         case '*':
-        cout << "Multiplication : " << *ptr1 * *ptr2 ;
+        cout << "Multiplication : " << (*num1) * (*num2) ;
         break;
 
         case '/':
-        cout << "Division : " << *ptr1 / *ptr2 ;
+        cout << "Division : " << *num1 / *num2 ;
         break;
 
         case '%':
-        cout << "Modulus : " << *ptr1 % *ptr2 ;
+        cout << "Modulus : " << *num1 % *num2 ;
         break;
     
     default:
@@ -46,7 +43,7 @@ int main()
         break;
     }
 
-    delete ptr1, ptr2, ptr3 ;
+    delete num1, num2, opr ;
 
     return 0 ;
 

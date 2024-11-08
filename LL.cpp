@@ -2,43 +2,101 @@
 
 using namespace std;
 
-struct node
-{
+struct Node {
     int data;
-    node *next;
+    Node* next;
 };
 
-int main()
-{
-    int choice = 1 ;
-    node *head, *newNode, *temp;
-    head = nullptr;
-    while (choice)
-    {
-        newNode = new node();
-        cout << "Enter data :\n";
-        cin >> newNode->data;
-        newNode->next = 0;
 
-        if (head == 0)
-        {
-            head = temp = newNode;
-        }
-
-        else
-        {
-            temp->next = newNode;
-            temp = newNode;
-        }
-        cout << "Do you want to continue ?(0 / 1)" <<endl;
-        cin >> choice;
+Node* createNode(int data) {
+    Node* newNode = new Node();
+    if (!newNode) {
+        cout << "Memory error\n";
+        return nullptr;
     }
-    temp = head;
+    newNode->data = data;
+    newNode->next = nullptr;
+    return newNode;
+}
 
-    while (temp != 0)
-    {
-        cout << temp->data << endl;
+
+void insertAtBeginning(Node*& head, int data) {
+    Node* newNode = createNode(data);
+    newNode->next = head;
+    head = newNode;
+}
+
+
+void insertAtEnd(Node*& head, int data) {
+    Node* newNode = createNode(data);
+    if (head == nullptr) {
+        head = newNode;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next != nullptr) {
         temp = temp->next;
     }
-    return 0 ;
+    temp->next = newNode;
+}
+
+void deleteFromBeginning(Node*& head) {
+    if (head == nullptr) {
+        cout << "List is empty\n";
+        return;
+    }
+    Node* temp = head;
+    head = head->next;
+    delete temp;
+}
+
+void deleteFromEnd(Node*& head) {
+    if (head == nullptr) {
+        cout << "List is empty\n";
+        return;
+    }
+    if (head->next == nullptr) {
+        delete head;
+        head = nullptr;
+        return;
+    }
+    Node* temp = head;
+    while (temp->next->next != nullptr) {
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+}
+
+
+void traverseList(Node* head) {
+    if (head == nullptr) {
+        cout << "List is empty\n";
+        return;
+    }
+    Node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " -> ";
+        temp = temp->next;
+    }
+    cout << "NULL\n";
+}
+
+int main() {
+    Node* head = nullptr;
+
+   
+    insertAtEnd(head, 5);
+    insertAtEnd(head, 10);
+    insertAtEnd(head, 20);
+    insertAtEnd(head, 30);
+
+    cout << "List after insertion: ";
+    traverseList(head);
+
+    deleteFromBeginning(head);
+    cout << "List after deletion: ";
+    traverseList(head);
+
+    return 0;
 }
