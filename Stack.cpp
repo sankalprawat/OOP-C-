@@ -1,76 +1,63 @@
 #include <iostream>
 using namespace std;
 
-class Stack {
-    private:
-        static const int MAX = 10;
-        int arr[MAX];
-        int top;
-    public:
-        Stack() {
-            top = -1;
+#define N 5
+int stack [N] ;
+int top = -1 ;
+
+void push (int data) {
+    if (top == N-1) {
+        cout << "Error: Stack Overflow!" << endl ;
+    } else {
+        top ++ ;
+        stack[top] = data ;
+    }
+}
+
+void pop () {
+    if (top == -1) {
+        cout << "Error: Stack Underflow!" << endl ;
+    } else {
+        cout <<"Popped item is: " << stack[top] << endl ;
+        top-- ;
+    }
+}
+
+void peek () {
+    if (top == -1) {
+        cout << "Error: Stack Underflow!" << endl ;
+    } else {
+        cout << "Top element of the stack is: " << stack[top] << endl ;
+    }
+}
+
+void display () {
+    if (top == -1) {
+        cout << "Error: Stack Underflow!" << endl ;
+    } else {
+        for (int i = top; i >= 0; i--) {
+            cout << stack[i] << endl;
         }
+    }
+}
 
-        void push(int data) {
-            if (top >= MAX - 1) {
-                cout << "Error: Stack overflow!" << endl;
-            } else {
-                arr[++top] = data;
-            }
-        }
+int main () {
+    push(10);
+    push(21);
+    push(40);
+    push(25);
+    push(66);
+    push(74);
 
-        void pop() {
-            if (top == -1) {
-                cout << "Error: Stack Underflow!" << endl;
-            } else {
-                --top;
-            }
-        }
+    display();
+    peek();
 
-        void peek() {
-            if (top >= 0) {
-                cout << arr[top] << endl;
-            } else {
-                cout << "Stack is empty" << endl;
-            }
-        }
+    pop();
+    peek();
+    pop();
+    peek();
 
-        bool isEmpty() {
-            return top == -1;
-        }
-
-        void display() {
-            if (top == -1) {
-                cout << "Stack is empty" << endl;
-            } else {
-                cout << "Stack elements are:" << endl;
-                for (int i = top; i >= 0; --i) {
-                    cout << arr[i] << endl;
-                }
-            }
-        }
-};
-
-int main() {
-    Stack stack;
-    stack.push(10);
-    stack.push(20);
-    stack.push(30);
-    stack.push(40);
-    stack.push(50);
-    stack.push(60);
-
-    // Display the stack
-    stack.display();
-
-    stack.peek();  // Peek at the top element
-
-    stack.pop();   // Pop the top element
-
-    // Display the stack again
-    stack.display();
-
-    stack.peek();  // Peek at the new top element
+    display();
 
     return 0;
 }

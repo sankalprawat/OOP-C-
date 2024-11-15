@@ -1,0 +1,1 @@
+//WAP a recursive function to calculate factorial of a given number using stack.
