@@ -9,7 +9,7 @@ int binarySearch(int a[], int n, int data)
 
     while (l <= r)
     {
-        int mid = l + r / 2;  
+        int mid = (l + r) / 2;  
         if (a[mid] == data)
         {
             return mid;

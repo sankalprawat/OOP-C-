@@ -11,20 +11,15 @@ struct Node {
 
 class Stack {
     private:
-
-
     Node *top = nullptr, *temp = nullptr ;
 
     public:
-
-
     void push (int n) {
         Node * newNode = new Node () ;
         newNode->data = n ;
         newNode->next = top ;
         top = newNode ;
     }
-
     void pop () {
         if (top == nullptr) {
             cout << "The list is empty!" << endl ;

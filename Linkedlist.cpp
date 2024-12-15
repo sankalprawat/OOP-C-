@@ -138,7 +138,7 @@ class linkedList {
 
     // Function to delete a node at a given position
     void delFromPos() {
-        Node* nextNode;
+        Node* nextNode = nullptr;
         int pos, i = 1;
         cout << "Enter the position where you want to delete: ";
         cin >> pos;
@@ -188,7 +188,7 @@ int main() {
     linkedl.displayLL();
     linkedl.delFromBeg(); // Delete from the beginning
     linkedl.displayLL();
-    linkedl.delFromEnd(); // Delete from the end
+    linkedl.delFromPos(); // Delete from the end
     linkedl.displayLL();
     linkedl.reverseList(); // Reverse the linked list
     linkedl.displayLL();

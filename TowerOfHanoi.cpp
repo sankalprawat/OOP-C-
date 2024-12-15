@@ -1,27 +1,28 @@
-#include <iostream> 
-
+#include <iostream>
 using namespace std;
 
-void TowerOfHanoi(int n, char fromPeg, char toPeg, char auxPeg) {
+void towerOfHanoi(int n, char source, char destination, char auxiliary) {
     if (n == 1) {
-        cout << "Move Disk 1 from tower " << fromPeg << " to tower " << toPeg << "\n";
+        cout << "Move disk 1 from " << source << " to " << destination << endl;
         return;
     }
-
-    TowerOfHanoi(n - 1, fromPeg, auxPeg, toPeg);
-
-    cout << "\nMove Disk " << n << " from tower " << fromPeg << " to tower " << toPeg<<endl;
-
-    TowerOfHanoi(n - 1, auxPeg, fromPeg, toPeg);
+    // Move n-1 disks from source to auxiliary
+    towerOfHanoi(n - 1, source, auxiliary, destination);
+    
+    // Move the nth disk from source to destination
+    cout << "Move disk " << n << " from " << source << " to " << destination << endl;
+    
+    // Move n-1 disks from auxiliary to destination
+    towerOfHanoi(n - 1, auxiliary, destination, source);
 }
 
 int main() {
+    int n;
+    cout << "Enter the number of disks: ";
+    cin >> n;
     
-    char sourcePeg = 'A';
-    char destinationPeg = 'C';
-    char auxiliaryPeg = 'B';
-
-    TowerOfHanoi(3, sourcePeg, destinationPeg, auxiliaryPeg);
-
+    // Call the function
+    towerOfHanoi(n, 'A', 'C', 'B'); // A is source, C is destination, B is auxiliary
+    
     return 0;
 }
