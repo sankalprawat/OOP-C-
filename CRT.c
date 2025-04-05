@@ -95,7 +95,16 @@
 //     return 0 ;
 // }
 
+// int main() {
+//     int i ;
+//     for (i = 0; i < 5; i++);
+//     printf("%d",i);
+//     return 0 ;
+// }
+
+#include <stdio.h> 
 int main() {
-    
-    return 0 ;
+int d, a = 1, b = 2; 
+d = a++ +++b; 
+printf("%d %d %d", d, a, b);
 }
